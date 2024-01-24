@@ -1,44 +1,91 @@
 ---
-
+import { Image } from 'astro:assets';
+import logoBaroveWhite from '../images/logoBaroveWhite.svg';
 ---
 
 <header>
   <div class="logo">
-    <img src="/path/to/your/logo.png" alt="Logo" />
+    <Image src={logoBaroveWhite} alt="logo" width="374" height="68" />
   </div>
   <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
+    <section class="weather">
+      <div class="location">Sofia, Bulgaria</div>
+      <div class="temperature" id="temperature"></div>
+      <div class="description" id="description"></div>
+      <div class="icon" id="weatherIcon"></div>
+    </section>
   </nav>
+
+  <script>
+    const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY'; // Replace with your actual API key
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Sofia,bg&appid=${apiKey}&units=metric`;
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const temperatureElement = document.getElementById('temperature');
+        const descriptionElement = document.getElementById('description');
+        const iconElement = document.getElementById('weatherIcon');
+
+        temperatureElement.textContent = `${data.main.temp}°C`;
+        descriptionElement.textContent = data.weather[0].description;
+
+        const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+        iconElement.innerHTML = `<img src="${iconUrl}" alt="Weather Icon">`;
+      })
+      .catch(error => console.error('Error fetching weather data:', error));
+  </script>
 </header>
 
 <style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   header {
+    background-color: #141414;
+    color: white;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #141414;
   }
 
   .logo img {
+    margin-left: 200px;
     max-width: 100px; /* Set the max width for your logo */
   }
 
-  nav ul {
-    list-style-type: none;
+  .weather {
+    margin-left: 20px;
+    text-align: right;
+  }
+
+  .location {
+    margin-right: 200px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .temperature {
+    font-size: 24px;
+    margin: 5px 0;
+  }
+
+  .description {
+    font-size: 16px;
+    color: #ccc;
+  }
+
+  .icon img {
+    max-width: 50px;
+  }
+
+  nav {
     display: flex;
-  }
-
-  nav li {
-    margin-right: 15px;
-  }
-
-  nav a {
-    text-decoration: none;
-    color: #ffffff;
+    align-items: center;
   }
 </style>
