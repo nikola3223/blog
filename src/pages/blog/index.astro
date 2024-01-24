@@ -1,0 +1,14 @@
+---
+import SingleArticle from "../../components/SingleArticle.astro"
+import {articlesList} from "../../quearies/articles.js"
+---
+
+<h1>bllog</h1>
+
+<div style="display: flex;">
+{
+    articlesList.posts.data.map((item) => (
+        <SingleArticle url={item.attributes.slug} image={item.attributes.image} name={item.attributes.name} />
+    ))
+}
+</div>

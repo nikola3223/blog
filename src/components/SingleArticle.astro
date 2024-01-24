@@ -1,0 +1,9 @@
+---
+import { Image } from "astro:assets";
+
+const {url,image, name } = Astro.props
+---
+<a href={`/blog/${url}`}>
+<h2>{name}</h2>
+<Image src={image.data.attributes.url} alt={image.data.attributes.alternativeText} width="200" height="200">
+</a>
