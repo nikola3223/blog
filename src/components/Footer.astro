@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import logoBaroveBlack from '../images/logoBaroveBlack.svg';
+
+import { Image } from 'astro:assets';
+import instagram from '../images/instagram.svg';
+
+import { Image } from 'astro:assets';
+import facebook from '../images/facebook.svg';
+---
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    footer {
+        background: linear-gradient(180deg, #fafafa 0%, #e3e4e6 100%);
+        color: white;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    footer ul {
+        color: #000000;
+        list-style: none;
+        padding-left: 0px;
+    }
+
+    .column {
+        padding: 10px;
+    }
+
+    .footerHeading {
+        color: #9ca5b4;
+    }
+</style>
+
+<footer>
+    <div class="column">
+        <Image src={logoBaroveBlack} alt="logo" width="374" height="68" />
+    </div>
+    <div class="column">
+        <p class="footerHeading">categorys</p>
+        <ul>
+            <li>acategory1</li>
+            <li>acategory2</li>
+            <li>acategory3</li>
+            <li>acategory4</li>
+        </ul>
+    </div>
+    <div class="column">
+        <p class="footerHeading">polezni wruzki</p>
+        <ul>
+            <li>kontakti</li>
+            <li>politika za poweritelnost</li>
+        </ul>
+        <Image src={instagram} alt="logo" width="50" height="50" />
+        <Image src={facebook} alt="logo" width="50" height="50" />
+
+    </div>
+</footer>
