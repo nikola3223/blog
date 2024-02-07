@@ -1,15 +1,16 @@
 import GraphQL from "../scripts/graphql.js";
 
 export const articlesList = await GraphQL.query(`
-query{
-  posts{
-    data{
-      attributes{
+query {
+  posts(sort: "id:desc") {
+    data {
+      id
+      attributes {
         slug
         name
-        image{
-          data{
-            attributes{
+        image {
+          data {
+            attributes {
               url
               alternativeText
             }

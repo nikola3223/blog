@@ -1,0 +1,39 @@
+---
+import type { GetStaticPaths } from "astro";
+import { articlesList } from "../../quearies/articles.js";
+import { categoryList } from "../../quearies/category.js";
+import { Image } from "astro:assets";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import SingleArticle from "../../components/SingleArticle.astro";
+
+export const getStaticPaths = (async () => {
+  return categoryList.categories.data.map(({ attributes }) => ({
+    params: { slug: attributes.slug },
+    props: attributes,
+  }));
+}) satisfies GetStaticPaths;
+
+const categoryData = Astro.props;
+
+
+const articlesArray = categoryData.posts.data.map(item => item.id);
+
+---
+
+<DefaultLayout>
+    {
+        articlesList.posts.data.map((item) => {
+
+            if (articlesArray.includes(item.id)) {
+                return (
+                    <SingleArticle
+                        url={item.attributes.slug}
+                        image={item.attributes.image}
+                        name={item.attributes.name}
+                    />
+                );
+            }
+        })
+    }
+  <h1>{categoryData.name}</h1>
+</DefaultLayout>

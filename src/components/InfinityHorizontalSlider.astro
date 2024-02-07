@@ -1,0 +1,45 @@
+---
+import SingleArticle from "./SingleArticle.astro";
+import { articlesList } from "../quearies/articles";
+
+import "@splidejs/splide/css";
+---
+
+<style>
+    .splide__slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center vertically */
+        align-items: center; /* Center horizontally */
+        text-align: center; /* Center text horizontally */
+    }
+</style>
+
+<script>
+    import Splide from "@splidejs/splide";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        let splide = new Splide(".splide");
+        splide.mount();
+    });
+</script>
+
+<section class="splide" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+        <ul class="splide__list">
+            {
+                articlesList.posts.data.map((item) => {
+                    return (
+                        <li class="splide__slide">
+                            <SingleArticle
+                                url={item.attributes.slug}
+                                image={item.attributes.image}
+                                name={item.attributes.name}
+                            />
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </div>
+</section>

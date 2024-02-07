@@ -1,21 +1,21 @@
 ---
 import { Image } from "astro:assets";
 import SearchLineIcon from "../images/search-line-icon.svg";
----
 
-<header>
-  <div class="topnav" id="myTopnav">
-    <div class="topnavA">
-      <a href="#">category 1</a>
-      <a href="#">category 2</a>
-      <a href="#">category 3</a>
-      <a href="#">category 4</a>
-    </div>
-    <div class="categoryBarSearchIcon">
-      <Image src={SearchLineIcon} alt="logo" width="42" height="42" />
-    </div>
+import { categoryList } from "../quearies/category.js";
+---
+<div class="topnav" id="myTopnav">
+  <div class="topnavA">
+    {
+      categoryList.categories.data.map(({ attributes }) => {
+        return <a href={`/categorys/${attributes.slug}`}>{attributes.name}</a>;
+      })
+    }
   </div>
-</header>
+  <div class="categoryBarSearchIcon">
+    <Image src={SearchLineIcon} alt="logo" width="42" height="42" />
+  </div>
+</div>
 
 <style>
   body {

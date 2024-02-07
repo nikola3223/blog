@@ -1,0 +1,33 @@
+---
+const {
+  pageTitle,
+  metaTitle,
+  metaDescription,
+  featuredImageUrl,
+  url = Astro.url,
+} = Astro.props;
+
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+---
+
+<head>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+
+  <meta property="og:title" content={metaTitle} />
+  <meta property="og:description" content={metaDescription} />
+  <meta property="og:url" content={url} />
+  <meta property="og:image" content={featuredImageUrl} />
+
+  <title>{pageTitle}</title>
+</head>
+<body>
+  <Header />
+
+  <slot />
+
+  <Footer />
+</body>

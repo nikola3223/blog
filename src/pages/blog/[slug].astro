@@ -1,20 +1,26 @@
 ---
 import type { GetStaticPaths } from "astro";
-import {articlesList} from "../../quearies/articles.js"
+import { articlesList } from "../../quearies/articles.js";
 import { Image } from "astro:assets";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
 
 export const getStaticPaths = (async () => {
   return articlesList.posts.data.map(({ attributes }) => ({
     params: { slug: attributes.slug },
-    props: attributes
+    props: attributes,
   }));
 }) satisfies GetStaticPaths;
 
-const articleData = Astro.props
+const articleData = Astro.props;
 ---
 
+<DefaultLayout>
+  <Image
+    src={articleData.image.data.attributes.url}
+    alt={articleData.image.data.attributes.alternativeText || "altvbgh"}
+    width="200"
+    height="200"
+  />
 
-<Image src={articleData.image.data.attributes.url} alt={articleData.image.data.attributes.alternativeText || "altvbgh"} width="200" height="200" ></Image>
-
-
-<h1>{articleData.name}</h1>
+  <h1>{articleData.name}</h1>
+</DefaultLayout>

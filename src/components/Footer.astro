@@ -1,15 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import logoBaroveBlack from '../images/logoBaroveBlack.svg';
-
-import { Image } from 'astro:assets';
-import instagram from '../images/instagram.svg';
-
-import { Image } from 'astro:assets';
-import facebook from '../images/facebook.svg';
+import { Image } from "astro:assets";
+import logoBaroveBlack from "../images/logoBaroveBlack.svg";
+import instagram from "../images/instagram.svg";
+import facebook from "../images/facebook.svg";
 ---
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <style>
     body {
         margin: 0;
@@ -37,6 +32,20 @@ import facebook from '../images/facebook.svg';
 
     .footerHeading {
         color: #9ca5b4;
+        font-weight: bolder;
+        font-size: large;
+    }
+
+    @media screen and (max-width: 670px) {
+        footer {
+            grid-template-columns: 2fr;
+            grid-template-rows: 1fr;
+        }
+
+        Image {
+            width: 150px;
+            height: 68px;
+        }
     }
 </style>
 
@@ -45,22 +54,22 @@ import facebook from '../images/facebook.svg';
         <Image src={logoBaroveBlack} alt="logo" width="374" height="68" />
     </div>
     <div class="column">
-        <p class="footerHeading">categorys</p>
+        <p class="footerHeading">категории</p>
         <ul>
-            <li>acategory1</li>
-            <li>acategory2</li>
-            <li>acategory3</li>
-            <li>acategory4</li>
+            <li>Барове</li>
+            <li>Коктейли / Рецепти</li>
+            <li>Любопитно</li>
+            <li>Класации</li>
+            <li>Новини</li>
         </ul>
     </div>
     <div class="column">
-        <p class="footerHeading">polezni wruzki</p>
+        <p class="footerHeading">полезни връзки</p>
         <ul>
-            <li>kontakti</li>
-            <li>politika za poweritelnost</li>
+            <li>контакти</li>
+            <li>покитика за поверителност</li>
         </ul>
         <Image src={instagram} alt="logo" width="50" height="50" />
         <Image src={facebook} alt="logo" width="50" height="50" />
-
     </div>
 </footer>
