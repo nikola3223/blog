@@ -2,11 +2,14 @@
 import "@splidejs/splide/css";
 ---
 
-<section id="test" class="splide kjh" aria-label="Splide Basic HTML Example">
+<section
+  id="test"
+  class="splide-казах-ти-че-тези-имена-трябва-да-са-различни-за-всеки-импорт kjh"
+  aria-label="Splide Basic HTML Example"
+>
   <div class="splide__track">
-  <div class="userdiv"> <h2>Отзиви от потребителите</h2></div>
+    <div class="userdiv"><h2>Отзиви от потребителите</h2></div>
     <ul class="splide__list">
-     
       <li class="splide__slide">
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
         <h3>Митка Бойчева</h3>
@@ -39,27 +42,23 @@ import "@splidejs/splide/css";
       <li class="splide__slide">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum facilis
         repudiandae similique nesciunt et quisquam sequi! Nihil, dolore?
-        <h3>Генади Христов
-        </h3>
+        <h3>Генади Христов</h3>
       </li>
       <li class="splide__slide">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas error
         harum aut, odit odio totam est vitae veniam?
-        <h3>Кадир Бенков
-        </h3>
+        <h3>Кадир Бенков</h3>
       </li>
       <li class="splide__slide">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas error
         harum aut, odit odio totam est vitae дадададададададада?
-        <h3>Цвети Василева
-        </h3>
+        <h3>Цвети Василева</h3>
       </li>
       <li class="splide__slide">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est ad fugiat
         alias nostrum consequatur veritatis, deserunt dolores eligendi molestias
         nihil natus. Blanditiis debitis perferendis quasi.
-        <h3>Албена Петрова
-        </h3>
+        <h3>Албена Петрова</h3>
       </li>
     </ul>
   </div>
@@ -68,18 +67,17 @@ import "@splidejs/splide/css";
 <style>
   .splide__track {
     color: rgb(0, 0, 0);
-    background-color: #F5EEE2;
+    background-color: #f5eee2;
     width: 100%;
-    
+
     padding: 6%;
   }
 
   .splide__list {
     text-align: center;
-    
   }
 
-  .userdiv{
+  .userdiv {
     text-align: center;
   }
 </style>
@@ -88,10 +86,13 @@ import "@splidejs/splide/css";
   import Splide from "@splidejs/splide";
   document.addEventListener("DOMContentLoaded", function () {
     // let splide = new Splide(".splide");
-    let splide = new Splide(".splide", {
-      perPage: 3,
-      perMove: 1,
-    });
+    let splide = new Splide(
+      ".splide-казах-ти-че-тези-имена-трябва-да-са-различни-за-всеки-импорт",
+      {
+        perPage: 3,
+        perMove: 1,
+      }
+    );
     splide.mount();
   });
 </script>
