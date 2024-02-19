@@ -13,17 +13,14 @@ let counter = 0;
 ---
 
 <style>
-    .article-box {
-        display: grid;
-        grid-template-columns: repeat(
-            2,
-            2fr
-        );
-        grid-template-rows: repeat(3, auto);
-        justify-items: center;
-        gap: 10px;
-    }
-    /* .article-box {
+  .article-box {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(3, auto);
+    justify-items: center;
+    gap: 10px;
+  }
+  /* .article-box {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
@@ -35,42 +32,42 @@ let counter = 0;
     .article-item {
         width: 45vw;
     }
+    weeee
 */
-    @media screen and (max-width: 550px) {
-        .article-box {
-            display: grid;
-        grid-template-columns: repeat(
-            1,
-            2fr
-        ); /* Create 3 columns each taking 2/3 of available width */
-        grid-template-rows: repeat(3, auto); /* Create 2 rows */
-        justify-items: center;
-        gap: 10px;
-        }
-        
+  @media screen and (max-width: 550px) {
+    .article-box {
+      display: grid;
+      grid-template-columns: repeat(
+        1,
+        2fr
+      ); /* Create 3 columns each taking 2/3 of available width */
+      grid-template-rows: repeat(3, auto); /* Create 2 rows */
+      justify-items: center;
+      gap: 10px;
     }
+  }
 </style>
 
 <DefaultLayout>
-    <InfinityHorizontalSlider />
-    <div class="article-box">
-        {
-            articlesList.posts.data.map((item) => {
-                if (counter < 6) {
-                    counter++;
-                    return (
-                        <div class="article-item">
-                            <SingleArticle
-                                url={item.attributes.slug}
-                                image={item.attributes.image}
-                                name={item.attributes.name}
-                            />
-                        </div>
-                    );
-                }
-            })
+  <InfinityHorizontalSlider />
+  <div class="article-box">
+    {
+      articlesList.posts.data.map((item) => {
+        if (counter < 6) {
+          counter++;
+          return (
+            <div class="article-item">
+              <SingleArticle
+                url={item.attributes.slug}
+                image={item.attributes.image}
+                name={item.attributes.name}
+              />
+            </div>
+          );
         }
-    </div>
-	<OpinionSlider />
-	<BlackBar />
+      })
+    }
+  </div>
+  <OpinionSlider />
+  <BlackBar />
 </DefaultLayout>
