@@ -1,0 +1,97 @@
+---
+import "@splidejs/splide/css";
+---
+
+<section id="test" class="splide kjh" aria-label="Splide Basic HTML Example">
+  <div class="splide__track">
+  <div class="userdiv"> <h2>Отзиви от потребителите</h2></div>
+    <ul class="splide__list">
+     
+      <li class="splide__slide">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        <h3>Митка Бойчева</h3>
+      </li>
+      <li class="splide__slide">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit fuga
+        repellendus similique, eos inventore laudantium!.
+        <h3>Георги Аспарухов</h3>
+      </li>
+      <li class="splide__slide">
+        Lorem ipsum dolor sit amet, consectetur adipisicing.
+        <h3>Никола Тодоров</h3>
+      </li>
+      <li class="splide__slide">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere iure
+        mollitia maiores doloremque? Minima, porro ipsum?
+        <h3>Любомир Михайлов</h3>
+      </li>
+      <li class="splide__slide">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dolorem
+        doloribus vitae eum eaque eius.
+        <h3>Кристиян Ненков</h3>
+      </li>
+      <li class="splide__slide">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, quisquam
+        perspiciatis accusamus deleniti recusandae sed facere suscipit obcaecati
+        eligendi!
+        <h3>Васил Божков</h3>
+      </li>
+      <li class="splide__slide">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum facilis
+        repudiandae similique nesciunt et quisquam sequi! Nihil, dolore?
+        <h3>Генади Христов
+        </h3>
+      </li>
+      <li class="splide__slide">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas error
+        harum aut, odit odio totam est vitae veniam?
+        <h3>Кадир Бенков
+        </h3>
+      </li>
+      <li class="splide__slide">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas error
+        harum aut, odit odio totam est vitae дадададададададада?
+        <h3>Цвети Василева
+        </h3>
+      </li>
+      <li class="splide__slide">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est ad fugiat
+        alias nostrum consequatur veritatis, deserunt dolores eligendi molestias
+        nihil natus. Blanditiis debitis perferendis quasi.
+        <h3>Албена Петрова
+        </h3>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .splide__track {
+    color: rgb(0, 0, 0);
+    background-color: #F5EEE2;
+    width: 100%;
+    
+    padding: 6%;
+  }
+
+  .splide__list {
+    text-align: center;
+    
+  }
+
+  .userdiv{
+    text-align: center;
+  }
+</style>
+
+<script>
+  import Splide from "@splidejs/splide";
+  document.addEventListener("DOMContentLoaded", function () {
+    // let splide = new Splide(".splide");
+    let splide = new Splide(".splide", {
+      perPage: 3,
+      perMove: 1,
+    });
+    splide.mount();
+  });
+</script>
