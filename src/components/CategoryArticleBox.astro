@@ -1,0 +1,71 @@
+---
+import SingleArticle from "../components/SingleArticle.astro";
+import { articlesList } from "../quearies/articles.js";
+let counter = 0;
+---
+
+<style>
+    .grid__wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        width: 912px;
+        gap: 10px;
+        margin-left: 10vw;
+        margin-top: 30px;
+    }
+
+    .wrap__category1 {
+        grid-area: 1 / 1 / 4 / 2;
+        width: 451px;
+    }
+    .wrap__category2 {
+        grid-area: 1 / 2 / 4 / 3;
+        width: 451px;
+    }
+
+    .article__box {
+        display: grid;
+        width: 451px;
+        height: 912px;
+        margin-bottom: 30px;
+        justify-items: center;
+        gap: 10px;
+    }
+</style>
+<div class="grid__wrap">
+    <div class="article__box wrap__category1">
+        {
+            articlesList.posts.data.map((item) => {
+                if (counter < 3) {
+                    counter++;
+                    return (
+                        <SingleArticle
+                            url={item.attributes.slug}
+                            image={item.attributes.image}
+                            name={item.attributes.name}
+                        />
+                    );
+                }
+            })
+        }
+    </div>
+    <div class="article__box wrap__category2">
+        {
+            articlesList.posts.data.map((item) => {
+                if (counter < 6) {
+                    counter++;
+                    return (
+                        <SingleArticle
+                            url={item.attributes.slug}
+                            image={item.attributes.image}
+                            name={item.attributes.name}
+                        />
+                    );
+                }
+            })
+        }
+    </div>
+</div>
