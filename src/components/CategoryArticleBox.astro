@@ -1,7 +1,8 @@
 ---
-import SingleArticle from "../components/SingleArticle.astro";
-import { articlesList } from "../quearies/articles.js";
-let counter = 0;
+import CategoryArticlesPosts from "../components/CategoryArticlesPosts.astro";
+import { categoryList } from "../quearies/category.js";
+
+const categoryData = Astro.props;
 ---
 
 <style>
@@ -14,6 +15,7 @@ let counter = 0;
         width: 912px;
         gap: 10px;
         margin-left: 10vw;
+        margin-right: 2vw;
         margin-top: 30px;
     }
 
@@ -34,38 +36,36 @@ let counter = 0;
         justify-items: center;
         gap: 10px;
     }
+
+    .category__name {
+        border-bottom: solid 3px grey;
+        color: grey;
+        width: 100%;
+        font-weight: bolder;
+    }
+
+    .advertisment {
+        display: flex;
+        background-color: white;
+        border-radius: 20px;
+        justify-items: center;
+        justify-content: center;
+        width: 730px;
+        height: 90px;
+        margin-left: 13vw;
+    }
+
 </style>
-<div class="grid__wrap">
-    <div class="article__box wrap__category1">
-        {
-            articlesList.posts.data.map((item) => {
-                if (counter < 3) {
-                    counter++;
-                    return (
-                        <SingleArticle
-                            url={item.attributes.slug}
-                            image={item.attributes.image}
-                            name={item.attributes.name}
-                        />
-                    );
-                }
-            })
-        }
-    </div>
-    <div class="article__box wrap__category2">
-        {
-            articlesList.posts.data.map((item) => {
-                if (counter < 6) {
-                    counter++;
-                    return (
-                        <SingleArticle
-                            url={item.attributes.slug}
-                            image={item.attributes.image}
-                            name={item.attributes.name}
-                        />
-                    );
-                }
-            })
-        }
-    </div>
+<div class="all">
+    <div class="advertisment"><p>reklama</p></div>
+    <div class="grid__wrap">
+        <div class="article__box wrap__category1">
+            <p class="category__name">барове</p>
+            <CategoryArticlesPosts articlesCount={3} categoryId="1" />
+        </div>
+        <div class="article__box wrap__category2">
+            <p class="category__name">класации</p>
+            <CategoryArticlesPosts articlesCount={3} categoryId="4" />
+        </div>
+    </div> 
 </div>

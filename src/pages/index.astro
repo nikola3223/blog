@@ -6,19 +6,12 @@ import OpinionSlider from "../components/OpinionSlider.astro";
 import LatestArticles from "../components/LatestArticles.astro";
 import HighlightArticles from "../components/HighlightArticles.astro"
 import CategoryArticleBox from "../components/CategoryArticleBox.astro"
+import BlackEmailBox from "../components/BlackEmailBox.astro";
+import SeoBottomText from "../components/SeoBottomText.astro";
 let counter = 0;
 ---
 
 <style>
-  .advertisment{
-    background-color: white;
-    width: 730px;
-    height: 90px;
-    margin-left: 13vw;
-  }
-  .article__item{
-border: dotted 1px orangered;
-  }
 
   .first__web__line {
     margin-top: 30px;
@@ -27,6 +20,16 @@ border: dotted 1px orangered;
     border-bottom: solid 3px lightslategray;
   }
   .latest__article__body {
+    justify-content: right;
+  }
+
+  .second__web__line {
+    margin-top: 30px;
+    width: 100vw;
+    display: flex;
+    border-bottom: solid 3px lightslategray;
+  }
+  .black__email__box {
     justify-content: right;
   }
 </style>
@@ -40,9 +43,12 @@ border: dotted 1px orangered;
     </div>
   </div>
 <div class="second__web__line">
-  <div class="advertisment"><p>reklama</p></div>
 <CategoryArticleBox/>
+<div class="black__email__box">
+  <BlackEmailBox/>
+</div>
 </div>
   <OpinionSlider />
   <BlackBar />
+  <SeoBottomText/>
 </DefaultLayout>

@@ -1,0 +1,32 @@
+---
+import SingleArticle from "../components/SingleArticle.astro";
+import { articlesList } from "../quearies/articles.js";
+import { categoryList } from "../quearies/category.js";
+
+const { articlesCount, categoryId } = Astro.props;
+
+let categoryData;
+let counter = 0;
+
+for (let item of categoryList.categories.data) {
+    if (item.id == categoryId) categoryData = item;
+}
+
+const articlesArray = categoryData.attributes.posts.data.map((item) => item.id);
+---
+
+{
+    articlesList.posts.data.map((item) => {
+        if (counter < articlesCount && articlesArray.includes(item.id)) {
+            counter++;
+            return (
+                <SingleArticle
+                    url={item.attributes.slug}
+                    image={item.attributes.image}
+                    name={item.attributes.name}
+                    contenct={item.attributes.contenct}
+                />
+            );
+        }
+    })
+}

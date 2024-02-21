@@ -15,25 +15,23 @@ export const getStaticPaths = (async () => {
 
 const categoryData = Astro.props;
 
-
-const articlesArray = categoryData.posts.data.map(item => item.id);
-
+const articlesArray = categoryData.posts.data.map((item) => item.id);
 ---
 
 <DefaultLayout>
-    {
-        articlesList.posts.data.map((item) => {
-
-            if (articlesArray.includes(item.id)) {
-                return (
-                    <SingleArticle
-                        url={item.attributes.slug}
-                        image={item.attributes.image}
-                        name={item.attributes.name}
-                    />
-                );
-            }
-        })
-    }
+  {
+    articlesList.posts.data.map((item) => {
+      if (articlesArray.includes(item.id)) {
+        return (
+          <SingleArticle
+            url={item.attributes.slug}
+            image={item.attributes.image}
+            name={item.attributes.name}
+            contenct={item.attributes.contenct}
+          />
+        );
+      }
+    })
+  }
   <h1>{categoryData.name}</h1>
 </DefaultLayout>

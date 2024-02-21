@@ -1,7 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import SearchLineIcon from "../images/search-line-icon.svg";
-
 import { categoryList } from "../quearies/category.js";
 ---
 <div class="topnav" id="myTopnav">
@@ -11,9 +8,6 @@ import { categoryList } from "../quearies/category.js";
         return <a href={`/categorys/${attributes.slug}`}>{attributes.name}</a>;
       })
     }
-  </div>
-  <div class="categoryBarSearchIcon">
-    <Image src={SearchLineIcon} alt="logo" width="42" height="42" />
   </div>
 </div>
 
