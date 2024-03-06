@@ -3,6 +3,9 @@ import type { GetStaticPaths } from "astro";
 import { articlesList } from "../../quearies/articles.js";
 import { Image } from "astro:assets";
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import { marked } from "marked";
+import LAnoAD from "../../components/LAnoAD.astro";
+import BEBnoAD from "../../components/BEBnoAD.astro";
 
 export const getStaticPaths = (async () => {
   return articlesList.posts.data.map(({ attributes }) => ({
@@ -14,13 +17,162 @@ export const getStaticPaths = (async () => {
 const articleData = Astro.props;
 ---
 
-<DefaultLayout>
-  <Image
-    src={articleData.image.data.attributes.url}
-    alt={articleData.image.data.attributes.alternativeText || "altvbgh"}
-    width="200"
-    height="200"
-  />
+<style>
+  .heading {
+    font-size: 28px;
+  }
 
-  <h1>{articleData.name}</h1>
+  .heading-element {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .image-wrapper {
+    max-width: 600px;
+    max-height: auto;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .content {
+    display: flex;
+    margin: auto;
+    max-width: 1300px;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+
+  .in-content {
+    margin: 20px 2%;
+  }
+
+  .right-heading {
+    margin-left: 1%;
+    width: 300px;
+  }
+
+  .line {
+    height: 2px;
+    background-color: #9ca5b4;
+    display: flex;
+    margin: auto;
+    max-width: 1300px;
+  }
+
+  .latest-article-and-email {
+    margin: 2% 0 2% 2%;
+  }
+
+  .full-content {
+    display: flex;
+    margin: 20px auto;
+    max-width: 1300px;
+  }
+
+  .latest-article {
+    margin-bottom: 30px;
+  }
+
+  @media screen and (max-width: 1340px) {
+    .full-content {
+      flex-direction: column;
+      margin: 20px;
+    }
+
+    .latest-article-and-email {
+      display: flex;
+      margin: auto;
+      gap: 20px;
+      /* flex-direction: column; */
+      justify-items: center;
+      align-items: center;
+    }
+  }
+
+  @media screen and (max-width: 950px) {
+    .heading-element {
+      margin: 20px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .heading-element {
+      display: flex;
+      margin: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      align-items: center;
+      flex-direction: column;
+    }
+    .right-heading {
+      display: flex;
+      margin: 20px;
+      justify-items: right;
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: unset;
+    }
+    .latest-article-and-email {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .full-content {
+      margin: 10px;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .latest-article-and-email {
+      width: 300px;
+    }
+  }
+</style>
+
+<style is:global>
+  .in-content img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+<DefaultLayout>
+  <div class="heading-element">
+    <div class="image-wrapper">
+      <Image
+        src={articleData.image.data.attributes.url}
+        alt={articleData.image.data.attributes.alternativeText || "altvbgh"}
+        width="900"
+        height="500"
+      />
+    </div>
+    <div class="right-heading">
+      {
+        articleData.categories.data.map((item) => {
+          return <p>{item.attributes.name}</p>;
+        })
+      }
+      <h1 class="heading">{articleData.name}</h1>
+      <p>Barove.bg/{articleData.date}</p>
+    </div>
+  </div>
+  <div class="line"></div>
+  <div class="full-content">
+    <div class="content">
+      <div class="in-content" set:html={marked.parse(articleData.content)} />
+    </div>
+    <div class="latest-article-and-email">
+      <div class="latest-article"><LAnoAD /></div>
+      <div><BEBnoAD /></div>
+    </div>
+  </div>
 </DefaultLayout>

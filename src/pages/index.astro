@@ -14,23 +14,74 @@ let counter = 0;
 <style>
 
   .first__web__line {
-    margin-top: 30px;
-    width: 100vw;
     display: flex;
+    margin: 30px auto 30px auto;
+    justify-content: center;
     border-bottom: solid 3px lightslategray;
+    gap: 20px;
   }
+  
+
   .latest__article__body {
     justify-content: right;
   }
 
   .second__web__line {
-    margin-top: 30px;
-    width: 100vw;
     display: flex;
+    margin: 30px auto 30px auto;
+    justify-content: center;
     border-bottom: solid 3px lightslategray;
+    gap: 20px;
   }
   .black__email__box {
     justify-content: right;
+  }
+
+  @media screen and (max-width: 1300px) {
+    .first__web__line{
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      align-items: center;
+    }
+
+    .latest__article__body{
+      display: flex;
+      margin: auto;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .second__web__line{
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      align-items: center;
+    }
+
+    .black__email__box{
+      display: flex;
+      margin: auto;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .latest__article__body{
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      align-items: center;
+    }
+
+    .black__email__box{
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      align-items: center;
+    }
   }
 </style>
 

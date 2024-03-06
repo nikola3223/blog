@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+
+const { url, image, name } = Astro.props;
+---
+
+<style>
+    a {
+        display: flex;
+        margin: 20px 0;
+        text-decoration: none;
+    }
+
+    a:hover {
+        opacity: 1;
+    }
+    p {
+        margin: 0;
+        color: whitesmoke;
+        text-shadow: black 5px;
+    }
+    img {
+        margin: 0 2%;
+        width: 200px;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .article__box__item{
+        border-top: 1px solid rgb(89, 89, 89);
+    }
+</style>
+<div class="article__box__item">
+    <a href={`/blog/${url}`}>
+        <Image
+            src={image.data.attributes.url}
+            alt={image.data.attributes.alternativeText}
+            width="200"
+            height="200"
+        />
+        <p>{name}</p>
+    </a>
+</div>

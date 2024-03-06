@@ -22,7 +22,7 @@ import CategoryBar from "./CategoryBar.astro";
   }
 
   .logo img {
-    margin-left: 15vw;
+    margin-left: 10vw;
     max-width: 100px; /* Set the max width for your logo */
   }
 
@@ -57,9 +57,11 @@ import CategoryBar from "./CategoryBar.astro";
   }
 </style>
 <header>
+  <a href="/">
   <div class="logo">
-    <Image src={logoBaroveWhite} alt="logo" width="374" height="68" />
-  </div>
+      <Image src={logoBaroveWhite} alt="logo" width="374" height="68" />
+    </div>
+  </a>
   <nav>
     <section class="weather">
       <div class="location">Sofia, Bulgaria</div>

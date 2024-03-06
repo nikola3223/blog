@@ -1,0 +1,69 @@
+---
+import SingleArticleForLatest from "../components/SingleArticleForLatest.astro";
+import { articlesList } from "../quearies/articles.js";
+let counter = 0;
+---
+
+<style>
+    .latest__article__box {
+        max-width: 400px;
+        max-height: 600px;
+        border: solid 5px grey;
+        border-radius: 20px;
+        background-color: grey;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    /* width */
+    .latest__article__box::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.latest__article__box::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.latest__article__box::-webkit-scrollbar-thumb {
+  background: rgb(43, 42, 42); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.latest__article__box::-webkit-scrollbar-thumb:hover {
+  background: rgb(31, 30, 30); 
+}
+
+.type{
+  display: flex;
+  margin: 10px auto;
+  justify-content: center;
+  font-size: 24px;
+  
+}
+</style>
+
+</style>
+
+<div class="latest__article__box">
+<h2 class="type" >Последни</h2>
+        <div class="article__internal__box">
+            {
+                articlesList.posts.data.map((item) => {
+                    if (counter < 6) {
+                        counter++;
+                        return (
+                            <SingleArticleForLatest
+                                url={item.attributes.slug}
+                                image={item.attributes.image}
+                                name={item.attributes.name}
+                            />
+                        );
+                    }
+                })
+            }
+        </div>
+</div>

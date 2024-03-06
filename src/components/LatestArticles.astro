@@ -1,45 +1,16 @@
 ---
-import SingleArticle from "../components/SingleArticle.astro";
-import { articlesList } from "../quearies/articles.js";
-let counter = 0;
+import LAnoAD from "./LAnoAD.astro";
 ---
 
 <style>
-    .latest__article__box {
-        width: 300px;
-        height: 600px;
-        border: solid 5px grey;
-        border-radius: 20px;
-        background-color: grey;
-        overflow-y: scroll;
-    }
     .advertisement {
         width: 300px;
         height: 300px;
         background-color: white;
         border-radius: 20px;
         text-align: center;
+        margin-bottom: 30px;
     }
 </style>
-
-<div class="latest__article__box">
-    <div>
-        <div class="article__internal__box">
-            {
-                articlesList.posts.data.map((item) => {
-                    if (counter < 6) {
-                        counter++;
-                        return (
-                            <SingleArticle
-                                url={item.attributes.slug}
-                                image={item.attributes.image}
-                                name={item.attributes.name}
-                            />
-                        );
-                    }
-                })
-            }
-        </div>
-    </div>
-</div>
+<LAnoAD/>
 <div class="advertisement"><p>reklkama</p></div>

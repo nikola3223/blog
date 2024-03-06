@@ -6,12 +6,24 @@ query {
     data {
       id
       attributes {
+        accent
+        content
         slug
         name
+        date
+        categories{
+          data{
+            attributes{
+              name
+            }
+          }
+        }
         image {
           data {
             attributes {
               url
+              width
+              height
               alternativeText
             }
           }

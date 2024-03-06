@@ -6,38 +6,38 @@ const categoryData = Astro.props;
 ---
 
 <style>
-    .grid__wrap {
+    .grid-wrap {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-        width: 912px;
+        max-width: 912px;
         gap: 10px;
-        margin-left: 10vw;
-        margin-right: 2vw;
+        margin: 30px 20px;
         margin-top: 30px;
+
     }
 
-    .wrap__category1 {
+    .wrap-category1 {
         grid-area: 1 / 1 / 4 / 2;
-        width: 451px;
+        max-width: 451px;
     }
-    .wrap__category2 {
+    .wrap-category2 {
         grid-area: 1 / 2 / 4 / 3;
-        width: 451px;
+        max-width: 451px;
     }
 
-    .article__box {
+    .article-box {
         display: grid;
-        width: 451px;
-        height: 912px;
+        max-width: 451px;
+        height: auto;
         margin-bottom: 30px;
         justify-items: center;
         gap: 10px;
     }
 
-    .category__name {
+    .category-name {
         border-bottom: solid 3px grey;
         color: grey;
         width: 100%;
@@ -50,21 +50,39 @@ const categoryData = Astro.props;
         border-radius: 20px;
         justify-items: center;
         justify-content: center;
-        width: 730px;
-        height: 90px;
-        margin-left: 13vw;
+        max-width: 730px;
+        height: auto;
+        margin: 30px 20px;
     }
+
+    @media screen and (max-width: 930px) {
+    .grid-wrap{
+      display: grid:;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 1fr);
+    }
+
+    .wrap-category1{
+        grid-area: 1 / 1 / 4 / 2;
+        max-width: 451px;
+    }
+
+    .wrap-category2{
+        grid-area: 4 / 1 / 7 / 2;
+        max-width: 451px;
+    }
+  }
 
 </style>
 <div class="all">
     <div class="advertisment"><p>reklama</p></div>
-    <div class="grid__wrap">
-        <div class="article__box wrap__category1">
-            <p class="category__name">барове</p>
+    <div class="grid-wrap">
+        <div class="article-box wrap-category1">
+            <p class="category-name">барове</p>
             <CategoryArticlesPosts articlesCount={3} categoryId="1" />
         </div>
-        <div class="article__box wrap__category2">
-            <p class="category__name">класации</p>
+        <div class="article-box wrap-category2">
+            <p class="category-name">класации</p>
             <CategoryArticlesPosts articlesCount={3} categoryId="4" />
         </div>
     </div> 

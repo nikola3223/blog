@@ -21,9 +21,8 @@ import { articlesList } from "../quearies/articles";
 <script>
     import { Splide } from "@splidejs/splide";
     import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-    new Splide(".splide").mount({ AutoScroll });
     
-    const splide = new Splide(".splide", {
+    const splide = new Splide(".splide-loop", {
         autoStart: true,
         type: "loop",
         drag: "free",
@@ -34,10 +33,10 @@ import { articlesList } from "../quearies/articles";
         },
     });
     
-    splide.mount();
+    splide.mount({ AutoScroll });
 </script>
 
-<section class="splide slide" aria-label="Splide Basic HTML Example">
+<section class="splide slide splide-loop" aria-label="Splide Basic HTML Example">
     <div class="splide__track">
         <ul class="splide__list">
             {

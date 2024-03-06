@@ -12,6 +12,7 @@
   "dependencies": {
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
-    "astro": "^4.3.2"
+    "astro": "^4.3.2",
+    "marked": "^12.0.0"
   }
 }

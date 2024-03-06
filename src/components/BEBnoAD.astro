@@ -1,0 +1,65 @@
+<style>
+    .input {
+        width: 240px;
+        height: 35px;
+        border-radius: 10px;
+        margin-top: 40px;
+        margin-left: 5%;
+    }
+    .text {
+        color: white;
+        margin-right: 30%;
+        margin-left: 5%;
+    }
+    .latest__article__box {
+        width: 300px;
+        height: auto;
+        border: solid 5px black;
+        border-radius: 20px;
+        background-color: black;
+    }
+
+    .input {
+        width: 240px;
+        height: 35px;
+        margin-left: 5%;
+    }
+
+    .btn {
+        height: 35px;
+        width: 140px;
+        border-radius: 10px;
+        margin-left: 5%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .text {
+        color: white;
+    }
+</style>
+
+<div class="latest__article__box">
+    <div>
+        <div class="article__internal__box">
+            <h2 class="text">Призив за Newslatter</h2>
+            <p class="text">Абонираи се за нашия имформационен бюлетин</p>
+            <form action="/" method="get">
+                <input
+                    class="input"
+                    type="email"
+                    name="emailField"
+                    id="emailField"
+                    required
+                />
+                <input class="btn" type="submit" value="Submit" />
+            </form>
+            <p id="demo"></p>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("благодаря");
+    });
+</script>
