@@ -1,6 +1,7 @@
 ---
 import "@splidejs/splide/css";
 ---
+
 <style>
   .splide__track {
     color: rgb(0, 0, 0);
@@ -20,22 +21,36 @@ import "@splidejs/splide/css";
 </style>
 
 <script>
-    import { Splide } from "@splidejs/splide";
-    import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-    
-    const splide = new Splide(".splide-казах-ти-че-тези-имена-трябва-да-са-различни-за-всеки-импорт", {
-        autoStart: true,
-        type: "loop",
-        drag: "free",
-        focus: "center",
-        perPage: 3,
-        autoScroll: {
-            speed: 1,
-        },
-    });
-    
-    splide.mount({ AutoScroll });
+  import { Splide } from "@splidejs/splide";
+  import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 
+  const splide = new Splide(
+    ".splide-казах-ти-че-тези-имена-трябва-да-са-различни-за-всеки-импорт",
+    {
+      autoStart: true,
+      type: "loop",
+      drag: "free",
+      focus: "center",
+      perPage: 3.5,
+      autoScroll: {
+        speed: 1,
+      },
+    },
+  );
+
+  splide.mount({ AutoScroll });
+
+  splide.on("resize", () => {
+        if (window.innerWidth > 1300) {
+            splide.options.perPage = 3.5;
+        } else if (window.innerWidth > 800) {
+            splide.options.perPage = 2.5;
+        } else if (window.innerWidth > 500) {
+            splide.options.perPage = 1.5;
+        } else {
+            splide.options.perPage = 1;
+        }
+    });
 </script>
 
 <section
@@ -47,56 +62,65 @@ import "@splidejs/splide/css";
     <!-- <div class="userdiv"><h2>Отзиви от потребителите</h2></div> -->
     <ul class="splide__list">
       <li class="splide__slide">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Прочетох няколко статии в блога и реших да избера едно заведение за
+        вечеря. Не съжалявам за избора - обслужването беше на ниво, а храната
+        просто въздушна!
         <h3>Митка Бойчева</h3>
       </li>
       <li class="splide__slide">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit fuga
-        repellendus similique, eos inventore laudantium!.
+        Блогът ме насочи към едно заведение за специален повод и реших да го
+        опитам. Обстановката беше чудесна, а храната - изключително вкусна.
+        Благодаря за препоръката!
         <h3>Георги Аспарухов</h3>
       </li>
       <li class="splide__slide">
-        Lorem ipsum dolor sit amet, consectetur adipisicing.
+        Открих блога докато търсех информация за нови места за излизане с
+        приятели. Прочетох няколко ревюта и решихме да посетим едно от
+        препоръчаните заведения. Не съжаляваме - изборът беше точен!
         <h3>Никола Тодоров</h3>
       </li>
       <li class="splide__slide">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere iure
-        mollitia maiores doloremque? Minima, porro ipsum?
+        Блогът предлага разнообразие от статии за местни заведения. Благодарение
+        на информацията, намерих много интересни места, които бих искал да
+        посетя в близко бъдеще.
         <h3>Любомир Михайлов</h3>
       </li>
       <li class="splide__slide">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dolorem
-        doloribus vitae eum eaque eius.
+        Прочетох последната публикация в блога за ново открито заведение в града
+        и бях много впечатлен. Обещаваща атмосфера и разнообразно меню -
+        определено място, което трябва да посетя!
         <h3>Кристиян Ненков</h3>
       </li>
       <li class="splide__slide">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, quisquam
-        perspiciatis accusamus deleniti recusandae sed facere suscipit obcaecati
-        eligendi!
+        Блогът е страхотен източник на информация за местни ресторанти и барове.
+        Винаги намирам интересни идеи за моите следващи излизания.
         <h3>Васил Божков</h3>
       </li>
       <li class="splide__slide">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum facilis
-        repudiandae similique nesciunt et quisquam sequi! Nihil, dolore?
+        Новата статия в блога за най-добрите заведения за закуска ме накара да
+        разгледам различни опции за сутрешно хранене. Обещаващи ревюта и снимки,
+        които ме карат да изгладнея!
         <h3>Генади Христов</h3>
       </li>
       <li class="splide__slide">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas error
-        harum aut, odit odio totam est vitae veniam?
+        Четейки блога, откривам много нови места, които никога преди не бих
+        помислил да посетя. Благодарение на него, откривам разнообразие от
+        вкусни кулинарни изживявания.
         <h3>Кадир Бенков</h3>
       </li>
       <li class="splide__slide">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas error
-        harum aut, odit odio totam est vitae дадададададададада?
+        Новата статия в блога за най-добрите заведения за закуска ме накара да
+        разгледам различни опции за сутрешно хранене. Обещаващи ревюта и снимки,
+        които ме карат да изгладнея!
+
         <h3>Цвети Василева</h3>
       </li>
       <li class="splide__slide">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est ad fugiat
-        alias nostrum consequatur veritatis, deserunt dolores eligendi molestias
-        nihil natus. Blanditiis debitis perferendis quasi.
+        Блогът е моят любим източник на вдъхновение за места за обяд и вечеря.
+        Винаги намирам интересни идеи и препоръки, които ме карат да искам да
+        опитам всичко!
         <h3>Албена Петрова</h3>
       </li>
     </ul>
   </div>
 </section>
-

@@ -13,9 +13,12 @@ const categoryData = Astro.props;
         grid-column-gap: 0px;
         grid-row-gap: 0px;
         max-width: 912px;
-        gap: 10px;
+        background-color: #F5EEE2;
+        gap: 15px;
         margin: 30px 20px;
         margin-top: 30px;
+        padding: 0 20px;
+        border-radius: 20px;
 
     }
 
@@ -38,21 +41,22 @@ const categoryData = Astro.props;
     }
 
     .category-name {
-        border-bottom: solid 3px grey;
-        color: grey;
+        border-bottom: solid 3px #E82547;
+        color: #141414;
         width: 100%;
         font-weight: bolder;
     }
 
     .advertisment {
         display: flex;
-        background-color: white;
+        border: 3px solid grey;
+        background-color: #F5EEE2;
         border-radius: 20px;
         justify-items: center;
         justify-content: center;
         max-width: 730px;
         height: auto;
-        margin: 30px 20px;
+        margin: 30px auto;
     }
 
     @media screen and (max-width: 930px) {

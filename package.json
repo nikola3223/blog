@@ -13,6 +13,10 @@
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "astro": "^4.3.2",
+    "astro-icon": "^1.1.0",
     "marked": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.29"
   }
 }

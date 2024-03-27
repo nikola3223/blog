@@ -14,15 +14,19 @@ import { articlesList } from "../quearies/articles";
     }
 
     .splide__track {
-        margin-top: 30px;
+        margin: 30px 0;
+        background-color: #F5EEE2;
+        padding: 10px;
+
     }
+
 </style>
 
 <script>
     import { Splide } from "@splidejs/splide";
     import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-    
-    const splide = new Splide(".splide-loop", {
+
+    let splide = new Splide(".splide-loop", {
         autoStart: true,
         type: "loop",
         drag: "free",
@@ -32,11 +36,26 @@ import { articlesList } from "../quearies/articles";
             speed: 1,
         },
     });
-    
+
     splide.mount({ AutoScroll });
+
+    splide.on("resize", () => {
+        if (window.innerWidth > 1300) {
+            splide.options.perPage = 3.5;
+        } else if (window.innerWidth > 800) {
+            splide.options.perPage = 2.5;
+        } else if (window.innerWidth > 500) {
+            splide.options.perPage = 1.5;
+        } else {
+            splide.options.perPage = 1;
+        }
+    });
 </script>
 
-<section class="splide slide splide-loop" aria-label="Splide Basic HTML Example">
+<section
+    class="splide slide splide-loop"
+    aria-label="Splide Basic HTML Example"
+>
     <div class="splide__track">
         <ul class="splide__list">
             {

@@ -23,18 +23,23 @@ let counter = 0;
   
 
   .latest__article__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px ;
     justify-content: right;
   }
 
   .second__web__line {
     display: flex;
-    margin: 30px auto 30px auto;
+    margin: 30px auto 0 auto;
     justify-content: center;
     border-bottom: solid 3px lightslategray;
     gap: 20px;
   }
   .black__email__box {
     justify-content: right;
+    margin-bottom: 20px;
   }
 
   @media screen and (max-width: 1300px) {
@@ -47,6 +52,7 @@ let counter = 0;
 
     .latest__article__body{
       display: flex;
+      flex-direction: row;
       margin: auto;
       align-items: center;
       gap: 30px;
@@ -62,7 +68,7 @@ let counter = 0;
 
     .black__email__box{
       display: flex;
-      margin: auto;
+      margin: 0 auto 20px auto;
       align-items: center;
       gap: 30px;
     }
@@ -79,12 +85,11 @@ let counter = 0;
     .black__email__box{
       display: flex;
       flex-direction: column;
-      margin: auto;
+      margin: 20px auto;
       align-items: center;
     }
   }
 </style>
-
 <DefaultLayout>
   <InfinityHorizontalSlider />
   <div class="first__web__line">

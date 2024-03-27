@@ -1,16 +1,13 @@
 ---
-import { Image } from "astro:assets";
-import logoBaroveBlack from "../images/logoBaroveBlack.svg";
-import instagram from "../images/instagram.svg";
-import facebook from "../images/facebook.svg";
+import { Icon } from "astro-icon/components";
 ---
 
 <style>
-    a{
+    a {
         text-decoration: none;
         color: #000000;
     }
-    
+
     body {
         margin: 0;
         padding: 0;
@@ -35,6 +32,12 @@ import facebook from "../images/facebook.svg";
         padding: 10px;
     }
 
+    .column img {
+        display: flex;
+        margin: auto;
+        align-items: center;
+    }
+
     .footerHeading {
         color: #9ca5b4;
         font-weight: bolder;
@@ -46,11 +49,9 @@ import facebook from "../images/facebook.svg";
             grid-template-columns: 2fr;
             grid-template-rows: 1fr;
         }
-
     }
-    
+
     @media screen and (max-width: 440px) {
-        
         div .column {
             width: 100px;
             height: 68px;
@@ -65,14 +66,15 @@ import facebook from "../images/facebook.svg";
 <footer>
     <a href="/">
         <div class="column">
-            <Image src={logoBaroveBlack} alt="logo" width="374" height="68" />
+            <Icon name="logoBaroveBlack" width={300} height={90} />
         </div>
     </a>
     <div class="column">
         <p class="footerHeading">категории</p>
         <ul>
             <a href="/categorys/barove"><li>Барове</li></a>
-            <a href="/categorys/kokteili-recepti"><li>Коктейли / Рецепти</li></a>
+            <a href="/categorys/kokteili-recepti"><li>Коктейли / Рецепти</li></a
+            >
             <a href="/categorys/lubopitno"><li>Любопитно</li></a>
             <a href="/categorys/klasacii"><li>Класации</li></a>
             <a href="/categorys/novini"><li>Новини</li></a>
@@ -84,7 +86,7 @@ import facebook from "../images/facebook.svg";
             <li>контакти</li>
             <li>покитика за поверителност</li>
         </ul>
-        <Image src={instagram} alt="logo" width="50" height="50" />
-        <Image src={facebook} alt="logo" width="50" height="50" />
+        <Icon name="instagram" color="black" width={50} height={50} />
+        <Icon name="facebook" color="black" width={50} height={50} />
     </div>
 </footer>

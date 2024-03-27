@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { url, image, name } = Astro.props;
+const { url, image, name, categories, date } = Astro.props;
 ---
 
 <style>
@@ -15,8 +15,13 @@ const { url, image, name } = Astro.props;
         opacity: 1;
     }
     p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        max-width: 90%;
+        overflow: hidden;
         margin: 0;
-        color: whitesmoke;
+        color: black;
         text-shadow: black 5px;
     }
     img {
@@ -27,8 +32,14 @@ const { url, image, name } = Astro.props;
         border-radius: 10px;
     }
 
-    .article__box__item{
-        border-top: 1px solid rgb(89, 89, 89);
+    .article__box__item {
+        border-top: 1px solid #E76025;
+    }
+
+    .heading {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 </style>
 <div class="article__box__item">
@@ -39,6 +50,13 @@ const { url, image, name } = Astro.props;
             width="200"
             height="200"
         />
-        <p>{name}</p>
+        <div class="heading">
+            <p>{name}</p>
+            {
+                categories.data.map((item) => {
+                    return <p>{item.attributes.name}</p>;
+                })
+            }
+        </div>
     </a>
 </div>
